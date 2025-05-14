@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import ModelSelector from "../Playground/ModelSelector";
 import PromptEditor, { PromptSettings } from "../Playground/PromptEditor";
@@ -11,7 +10,7 @@ import { Activity, Brain, Database, MessageSquare } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { v4 as uuidv4 } from "@/lib/utils";
+import { v4 } from "@/lib/utils"; // Import v4 correctly from utils
 
 const Dashboard: React.FC = () => {
   const { user, logout } = useAuth();
@@ -58,7 +57,7 @@ const Dashboard: React.FC = () => {
       
       // Create response object
       const newResponse: ModelResponse = {
-        id: uuidv4(),
+        id: v4(),
         text: responseText,
         model: selectedModel,
         timestamp: new Date().toISOString(),
